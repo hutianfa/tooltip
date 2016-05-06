@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery对话框插件 支持拖拽DEMO演示</title>
+<link rel="Stylesheet" type="text/css" href="css/Dialoghu.css" />
+<style type="text/css">
+input[type='button']{margin:100px 20px;padding: 10px;}
+</style>
+</head>
+<body>
+<center><br/>
+    <input type="button" value="弹出提示框" id="btnAlert" />
+    <input type="button" value="弹出确认框" id="btnConfirm" />
+</center>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/DialogByHu.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnAlert").click(function () {
+            $.DialogByHu.Alert({ Width: 350, Height: 200, Title: "弹出层demo", Content: '欢迎来到弹出层界面', ConfirmFun: test });
+        })
+        $("#btnConfirm").click(function () {
+            $.DialogByHu.Confirm({ Width: 350, Height: 200, Title: "提示信息", Content: '你好，这是确认信息，是否确认后续操作', ConfirmFun: test, CancelFun: testCancel });
+        })
+    })
+    function test() {
+        $.DialogByHu.Alert({ Width: 350, Height: 200, Title: "确定添加内容信息么", Content: '确定添加该成员' });
+    }
+    function testCancel() {
+        $.DialogByHu.Alert({ Width: 350, Height: 200, Title: "取消后执行方法", Content: '取消后执行的方法' });
+    }
+</script>
+</body>
+</html>
